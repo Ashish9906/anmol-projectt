@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conclave Badalta JK</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary-gradient: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%);
+            --hover-gradient: linear-gradient(135deg, #283593 0%, #1565c0 100%);
+            --text-gradient: linear-gradient(45deg, #2196f3, #e91e63);
+        }
+
+        body {
+            background: #0a0a0a;
+            color: white;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 60px 0;
+            background: var(--primary-gradient);
+            margin: -20px -20px 40px -20px;
+            border-radius: 0 0 30px 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .header h1 {
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #fff, #64b5f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .content-section {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px 0;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .content-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .section-title {
+            font-size: 2em;
+            margin-bottom: 20px;
+            background: var(--text-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-content {
+            font-size: 1.1em;
+            color: #e0e0e0;
+            margin-bottom: 20px;
+        }
+
+        .speakers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .speaker-card {
+            background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .speaker-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .speaker-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--hover-gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+            border-radius: 20px;
+        }
+
+        .speaker-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .speaker-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 4px solid #2196f3;
+            transition: transform 0.3s ease;
+        }
+
+        .speaker-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .speaker-card h3 {
+            color: #2196f3;
+            margin-bottom: 10px;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, #2196f3, transparent);
+        }
+
+        .timeline-item {
+            margin-bottom: 30px;
+            position: relative;
+            width: 50%;
+            padding: 20px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            right: -10px;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background: #2196f3;
+            border-radius: 50%;
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-left: 50%;
+        }
+
+        .timeline-item:nth-child(even)::before {
+            left: -10px;
+        }
+
+        .award-section {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%);
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+
+        .award-section img {
+            max-width: 300px;
+            margin: 20px auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .award-section img:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery {
+            margin: 40px 0;
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.7));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .timeline::before {
+                left: 0;
+            }
+
+            .timeline-item {
+                width: 100%;
+                margin-left: 20px !important;
+            }
+
+            .timeline-item::before {
+                left: -30px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Jammu's Defining Moment: Witness the Power of Ideas at Conclave Badalta JK!</h1>
+        </header>
+
+        <section class="content-section">
+            <h2 class="section-title">A Vision for Change</h2>
+            <div class="section-content">
+                <p>The "Conclave Badalta JK" is more than just an event; it is a movement that seeks to inspire collective efforts toward a brighter and more prosperous Jammu and Kashmir. Designed to showcase the socio-political, economic, and cultural evolution of the region since its transition into a Union Territory, the conclave centers around the theme of development.</p>
+            </div>
+        </section>
+
+        <section class="timeline">
+            <div class="timeline-item">
+                <h3>10:00 AM - Inaugural Ceremony</h3>
+                <p>Opening address by Subash Choudhary, Chairman of JK 24x7 and Gulistan News</p>
+            </div>
+            <div class="timeline-item">
+                <h3>11:30 AM - Keynote Address</h3>
+                <p>Lieutenant Governor Manoj Sinha's vision for transformative development</p>
+            </div>
+            <div class="timeline-item">
+                <h3>2:00 PM - Panel Discussions</h3>
+                <p>Distinguished speakers share insights on regional development</p>
+            </div>
+            <div class="timeline-item">
+                <h3>5:00 PM - Award Ceremony</h3>
+                <p>Maharaja Hari Singh Peace and Harmony Awards 2024-25</p>
+            </div>
+        </section>
+
+        <section class="speakers-grid">
+            <!-- Speaker Cards -->
+            <div class="speaker-card">
+                <img src="images (1).jpeg" alt="Omar Abdullah">
+                <h3>Omar Abdullah</h3>
+                <p>Chief Minister of the UT of J&K</p>
+            </div>
+            <div class="speaker-card">
+                <img src="fdvuyf.jpeg" alt="Manoj Sinha">
+                <h3>Manoj Sinha</h3>
+                <p>Lieutenant Governor of J&K</p>
+            </div>
+            <!-- Add more speaker cards -->
+        </section>
+
+        <section class="gallery">
+            <h2 class="section-title">Welcome Our Guests</h2>
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="./photo gallery/IMG-20250122-WA0020.jpg" alt="Gallery Image 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="./photo gallery/IMG-20250122-WA0021.jpg" alt="Gallery Image 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="./photo gallery/IMG-20250122-WA0022.jpg" alt="Gallery Image 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="./photo gallery/IMG-20250122-WA0023.jpg" alt="Gallery Image 4">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="./photo gallery/IMG-20250122-WA0024.jpg" alt="Gallery Image 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="./photo gallery/IMG-20250122-WA0019.jpg" alt="Gallery Image 4">
+                </div>
+            </div>
+        </section>
+
+        <section class="award-section">
+            <h2 class="section-title">Maharaja Hari Singh Peace and Harmony Award</h2>
+            <img src="left.jpg" alt="Award">
+            <p>Maharaja Hari Singh ( 1895 - 1961 )</p>
+        </section>
+    </div>
+</body>
+</html>
